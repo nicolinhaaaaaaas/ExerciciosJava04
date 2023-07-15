@@ -4,19 +4,21 @@ public class TestaEquipamento {
 	
 	public static void main(String[] args) {
 	
-		Equipamento equipamento = new Equipamento();
-		Computador computador = new Computador();
+		Equipamento equipamento = new Equipamento(0, 0);
+		Computador computador = new Computador(0, 0, null, null);
 		
 		equipamento.setQuantidade(5);
 		equipamento.setPreco(150);
 		
 		computador.setUsuario("Thiago");
 		computador.setPerifericos("Mouse");
+		computador.setQuantidade(5);
+		computador.setPreco(173);
 		
 		System.out.println(equipamento.toString());
 		System.out.println(computador.toString());
 		
-		System.out.println(equipamento.getPreco());
+		System.out.println(computador.getPreco());
 	}
 	
 }
@@ -27,9 +29,14 @@ package questao43;
 
 public class Equipamento {
 	
-	private int quantidade;
+	public int quantidade;
 	
-	private float preco;
+	public float preco;
+	
+	public Equipamento(int quantidade, float preco) {
+		this.quantidade = quantidade;
+		this.preco = preco;
+	}
 	
 	public void setQuantidade(int novoQuantidade) {
 		quantidade = novoQuantidade;
@@ -62,6 +69,12 @@ public class Computador extends Equipamento{
 	private String usuario;
 	
 	private String perifericos;
+	
+	public Computador(int quantidade, float preco, String usuario, String perifericos) {
+		super(quantidade, preco);
+		this.usuario = usuario;
+		this.perifericos = perifericos;
+	}
 		
 	public void setUsuario(String novoUsuario) {
 		usuario = novoUsuario;
@@ -80,8 +93,8 @@ public class Computador extends Equipamento{
 	}
 	
 	public String toString() {
-		return "o Usuario: "+ usuario + " comprou o periferico " + perifericos +
-				"Quantidade: "+super.getQuantidade() + " e preco: " + super.getPreco();
+		return "o Usuario: "+ usuario + " comprou o periferico " + perifericos + super.toString();
+				
 	}
 
 }
