@@ -13,6 +13,7 @@ public class questao58 {
 		numero = scanner.nextInt();
 		try {
 			checarMes();
+			//break;
 		}
 		catch(Exception e) {
 				System.out.println("um prolema: "+ e);
